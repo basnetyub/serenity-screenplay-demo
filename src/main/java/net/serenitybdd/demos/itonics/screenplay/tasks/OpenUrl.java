@@ -10,4 +10,10 @@ public class OpenUrl {
                 Open.browserOn().thePageNamed("amazon.homepage")
         );
     }
+
+    public static Performable theFacebookLogin() {
+        return Task.where("{0} opens the Facebook login page",
+                Open.browserOn().thePageNamed("facebook.loginpage")
+        );
+    }
 }
