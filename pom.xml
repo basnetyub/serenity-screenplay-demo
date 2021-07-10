@@ -93,12 +93,8 @@
                 <version>2.22.1</version>
                 <configuration>
                     <includes>
-                        <include>**/features/**/*.java</include>
                         <include>**/cucumber/*.java</include>
                     </includes>
-                    <!--<systemPropertyVariables>-->
-                        <!--<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>-->
-                    <!--</systemPropertyVariables>-->
                     <excludes>
                         <exclude>**/*WithFailures.java</exclude>
                     </excludes>
@@ -149,56 +145,4 @@
             </plugin>
         </plugins>
     </build>
-    <profiles>
-        <profile>
-            <id>failing</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <configuration>
-                            <includes>
-                                <include>**/*WithFailures.java</include>
-                            </includes>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>cucumber</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <configuration>
-                            <includes>
-                                <include>**/CucumberTestSuite.java</include>
-                            </includes>
-                            <parallel>methods</parallel>
-                            <useUnlimitedThreads>true</useUnlimitedThreads>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
